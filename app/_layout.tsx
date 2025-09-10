@@ -8,6 +8,7 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 
+import HeaderButtonRight from "@/components/HeaderButtonRight";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function RootLayout() {
@@ -23,7 +24,12 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ title: "Joueuses" }}>
+      <Stack
+        screenOptions={{
+          title: "Joueuses",
+          headerRight: () => <HeaderButtonRight />,
+        }}
+      >
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
